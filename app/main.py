@@ -1,3 +1,5 @@
+#f
+
 # Ask user for their name
 username = input("Enter your name: ")
 
@@ -36,8 +38,9 @@ for index, coffee in enumerate(coffee_names, start=1):
 selection = input(f"\nHello {username}, enter coffee type by selecting A, B, C, etc.: ").upper()
 
 # Validate selection and display chosen coffee
-if selection in [chr(65 + i) for i in range(len(coffee_names))]
-    chosen_coffee = coffee_names[ord(selection) - 65]  
+if selection in [chr(65 + i) for i in range(len(coffee_names))]:
+    chosen_coffee = coffee_names[ord(selection) - 65] 
+ 
     print(f"\nYou selected {chosen_coffee}. Enjoy your coffee!")
 else:
     print("\nInvalid selection. Please try again.")
