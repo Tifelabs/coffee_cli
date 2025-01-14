@@ -1,6 +1,10 @@
 #include "menu.h"
 #include <stddef.h>  /* For NULL */
 #include <stdio.h>
+#include "cart.h"
+#include "ui.h"
+#include "order.h"
+
 
 /* Constants for array sizes */
 #define MENU_SIZE 6
