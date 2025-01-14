@@ -1,56 +1,12 @@
 #include "menu.h"
-#include <stddef.h>  // For NULL
-
+#include <stddef.h>  /* For NULL */
 #include <stdio.h>
-#include "menu.h"
 
-int main() {
-    printf("Menu size: %d\n", get_menu_size(0)); // Test function
-    printf("Snack size: %d\n", get_menu_size(1)); // Test function
-    return 0;
-}
+/* Constants for array sizes */
+#define MENU_SIZE 6
+#define SNACK_SIZE 5
 
-// Example Descriptions
-const char* MENU_DESCRIPTIONS[] = {
-    "A strong black coffee.",
-    "A creamy coffee with frothy milk.",
-    "A smooth coffee with steamed milk.",
-    "A rich coffee with chocolate syrup.",
-    "A simple coffee with hot water.",
-    "A refreshing cold coffee."
-};
-
-const char* SNACK_DESCRIPTIONS[] = {
-    "A delicious slice of apple pie.",
-    "A chewy and sweet cookie.",
-    "A warm and spiced cinnamon roll.",
-    "A classic glazed donut.",
-    "A savory sausage roll."
-};
-
-// Example Calorie Information
-const int DRINK_CALORIES[] = {5, 150, 180, 200, 10, 15};
-const int SNACK_CALORIES[] = {320, 150, 400, 250, 350};
-
-// Multipliers
-const double CALORIE_MULTIPLIERS[] = {1.0, 1.5, 2.0};
-const double SIZE_MULTIPLIERS[] = {1.0, 1.2, 1.5};
-
-// Tax Rate
-const double TAX_RATE = 0.07;
-
-// Implement `get_size_multiplier`
-double get_size_multiplier(char size) {
-    switch (size) {
-        case 'S': return SIZE_MULTIPLIERS[0];
-        case 'M': return SIZE_MULTIPLIERS[1];
-        case 'L': return SIZE_MULTIPLIERS[2];
-        default: return 1.0;  // Default to small if size is invalid
-    }
-}
-
-
-// Menu items and their details
+/* Menu items and their details */
 const char* MENU_ITEMS[] = {
     "Espresso",
     "Cappuccino",
@@ -68,11 +24,48 @@ const char* SNACK_ITEMS[] = {
     "Sausage"
 };
 
-// Prices for each menu item
+/* Example Descriptions */
+const char* MENU_DESCRIPTIONS[] = {
+    "A strong black coffee.",
+    "A creamy coffee with frothy milk.",
+    "A smooth coffee with steamed milk.",
+    "A rich coffee with chocolate syrup.",
+    "A simple coffee with hot water.",
+    "A refreshing cold coffee."
+};
+
+const char* SNACK_DESCRIPTIONS[] = {
+    "A delicious slice of apple pie.",
+    "A chewy and sweet cookie.",
+    "A warm and spiced cinnamon roll.",
+    "A classic glazed donut.",
+    "A savory sausage roll."
+};
+
+/* Example Calorie Information */
+const int DRINK_CALORIES[] = {5, 150, 180, 200, 10, 15};
+const int SNACK_CALORIES[] = {320, 150, 400, 250, 350};
+
+/* Multipliers */
+const double CALORIE_MULTIPLIERS[] = {1.0, 1.5, 2.0};
+const double SIZE_MULTIPLIERS[] = {1.0, 1.2, 1.5};
+
+/* Prices for each menu item */
 const double PRICES[] = {2.99, 3.99, 3.99, 4.29, 3.49, 3.99};
 const double SNACK_PRICES[] = {3.99, 2.49, 3.99, 1.99, 4.49};
 
-// Other constants are unchanged...
+/* Tax Rate */
+const double TAX_RATE = 0.07;
+
+/* Function implementations */
+double get_size_multiplier(char size) {
+    switch (size) {
+        case 'S': return SIZE_MULTIPLIERS[0];
+        case 'M': return SIZE_MULTIPLIERS[1];
+        case 'L': return SIZE_MULTIPLIERS[2];
+        default: return 1.0;  /* Default to small if size is invalid */
+    }
+}
 
 int get_menu_size(int is_snacks) {
     return is_snacks ? SNACK_SIZE : MENU_SIZE;
@@ -104,6 +97,7 @@ const char* get_item_description(int index, int is_snacks) {
 
 int get_item_calories(int index, int is_snacks, char size) {
     int base_calories;
+    
     if (is_snacks) {
         if (index < 0 || index >= SNACK_SIZE) return 0;
         return SNACK_CALORIES[index];
@@ -134,4 +128,10 @@ double calculate_final_price(int index, int is_snacks, char size) {
         base_price *= get_size_multiplier(size);
     }
     return base_price * (1 + TAX_RATE);
+}
+
+int main() {
+    printf("Menu size: %d\n", get_menu_size(0));    /* Test function */
+    printf("Snack size: %d\n", get_menu_size(1));   /* Test function */
+    return 0;
 }

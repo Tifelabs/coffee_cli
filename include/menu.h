@@ -1,10 +1,11 @@
 #ifndef MENU_H
 #define MENU_H
 
+/* Define constants */
 #define MENU_SIZE 6
-#define SNACK_SIZE 5  // Rename macro to avoid conflicts with variable names
+#define SNACK_SIZE 5
 
-// Declare arrays and constants
+/* External array and constant declarations */
 extern const char* MENU_ITEMS[];
 extern const char* SNACK_ITEMS[];
 extern const double PRICES[];
@@ -17,7 +18,7 @@ extern const double SIZE_MULTIPLIERS[];
 extern const double CALORIE_MULTIPLIERS[];
 extern const double TAX_RATE;
 
-// Declare functions
+/* Function declarations */
 int get_menu_size(int is_snacks);
 const char* get_item_name(int index, int is_snacks);
 double get_item_price(int index, int is_snacks);
@@ -28,4 +29,4 @@ int is_item_available(int index, int is_snacks);
 const char* get_drink_category(int index);
 double calculate_final_price(int index, int is_snacks, char size);
 
-#endif // MENU_H
+#endif /* MENU_H */
