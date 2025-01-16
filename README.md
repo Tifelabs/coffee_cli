@@ -1,6 +1,8 @@
 
 #### Coffee CLI System
-<video controls src="tutor.mp4" title="coffee_cli"></video>
+
+![Video Preview](./tutor.mp4)
+
 
 A terminal-based point of sale system for a coffee shop using ncurses.
 
