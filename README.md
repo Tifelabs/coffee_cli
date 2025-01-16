@@ -1,7 +1,6 @@
 
-
-# README.md
-# Coffee CLI System
+#### Coffee CLI System
+<video controls src="tutor.mp4" title="coffee_cli"></video>
 
 A terminal-based point of sale system for a coffee shop using ncurses.
 
