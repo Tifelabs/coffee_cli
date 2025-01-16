@@ -1,17 +1,10 @@
+// include/order.h - Order management functions
 #ifndef ORDER_H
 #define ORDER_H
 
-#include "cart.h"
+#include "types.h"
 
-typedef struct {
-    CartItem* items;
-    int count;
-    double total;
-    char* timestamp;
-} Order;
+void update_order_total(Order* order);
+void add_to_cart(Order* order, const char* item_name, double price, char size, int quantity);
 
-Order* create_order(Cart* cart);
-void print_order(Order* order);
-void free_order(Order* order);
-
-#endif /* ORDER_H */
+#endif

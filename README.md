@@ -1,7 +1,7 @@
 
 
 # README.md
-# Coffee Shop POS System
+# Coffee CLI System
 
 A terminal-based point of sale system for a coffee shop using ncurses.
 
@@ -24,7 +24,7 @@ make
 
 ## Running
 ```bash
-./build/coffee_shop
+./coffee_shop
 ```
 
 ## Controls
