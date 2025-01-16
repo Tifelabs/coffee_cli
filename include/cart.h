@@ -1,15 +1,23 @@
-// include/cart.h
 #ifndef CART_H
 #define CART_H
 
-#include "order.h"
+typedef struct {
+    int item_index;
+    int is_snack;
+    char size;
+    int quantity;
+} CartItem;
 
-void add_to_cart(Order* order, const char* item_name, double price, 
-                 char size, int quantity, int is_snack);
-void update_order_total(Order* order);
+typedef struct {
+    CartItem* items;
+    int count;
+    int capacity;
+} Cart;
 
-#endif
+Cart* create_cart(void);
+void add_to_cart(Cart* cart, int item_index, int is_snack, char size, int quantity);
+void clear_cart(Cart* cart);
+double get_cart_total(Cart* cart);
+void free_cart(Cart* cart);
 
-
-
-
+#endif /* CART_H */

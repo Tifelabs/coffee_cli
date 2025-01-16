@@ -135,7 +135,24 @@ double calculate_final_price(int index, int is_snacks, char size) {
 }
 
 int main() {
+
+    Cart* cart = create_cart();
+    init_ui();
+    
+    /* Main program loop */
+    display_menu();
+    
+    /* Add your menu interaction logic here */
+    
+    /* Cleanup */
+    free_cart(cart);
+    cleanup_ui();
+
     printf("Menu size: %d\n", get_menu_size(0));    /* Test function */
     printf("Snack size: %d\n", get_menu_size(1));   /* Test function */
     return 0;
+
+
+
+
 }

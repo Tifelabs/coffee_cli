@@ -1,24 +1,17 @@
-// include/order.h
 #ifndef ORDER_H
 #define ORDER_H
 
-#define MAX_ITEMS 20
-#define MAX_NAME 50
+#include "cart.h"
 
 typedef struct {
-    char name[50];
-    double price;
-    char size;
-    int quantity;
-    int is_snack;
-} CartItem;
-
-typedef struct {
-    char name[MAX_NAME];
-    CartItem items[MAX_ITEMS];
-    int item_count;
+    CartItem* items;
+    int count;
     double total;
-    double tax;
+    char* timestamp;
 } Order;
 
-#endif
+Order* create_order(Cart* cart);
+void print_order(Order* order);
+void free_order(Order* order);
+
+#endif /* ORDER_H */
